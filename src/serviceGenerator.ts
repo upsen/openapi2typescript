@@ -202,6 +202,10 @@ const defaultGetType = (schemaObject: SchemaObject | undefined, namespace: strin
   if (schemaObject.allOf && schemaObject.allOf.length) {
     return `(${schemaObject.allOf.map((item) => defaultGetType(item, namespace)).join(' & ')})`;
   }
+  /** 针对于 additionalProperties */
+  if (typeof schemaObject.additionalProperties ===  'object') {
+    return `Record<string,${defaultGetType(schemaObject.additionalProperties, namespace)}>`
+  }
   if (schemaObject.type === 'object' || schemaObject.properties) {
     if (!Object.keys(schemaObject.properties || {}).length) {
       return 'Record<string, any>';
@@ -354,7 +358,7 @@ class ServiceGenerator {
         });
       });
     });
-    
+
   }
 
   public genFile() {
