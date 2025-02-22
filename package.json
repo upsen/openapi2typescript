@@ -1,11 +1,7 @@
 {
-  "name": "@umijs/openapi",
+  "name": "@niaoyoo/openapi",
   "version": "1.13.0",
   "description": "",
-  "repository": {
-    "type": "git",
-    "url": "git+git@github.com:chenshuai2144/openapi2typescript.git"
-  },
   "license": "MIT",
   "author": "chenshuai2144",
   "main": "dist/index.js",
@@ -48,5 +44,9 @@
     "np": "^7.2.0",
     "tslib": "^2.6.0",
     "typescript": "^4.1.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
